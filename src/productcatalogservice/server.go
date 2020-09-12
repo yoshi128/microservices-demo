@@ -135,7 +135,7 @@ func run(port string) string {
 	var srv *grpc.Server
 	if os.Getenv("DISABLE_STATS") == "" {
 		logger.Info("Stats enabled.")
-		statsHandler := grpctrace.NewClientStatsHandler(grpctrace.WithServiceName("productcatalogservice"))
+		statsHandler := grpctrace.NewServerStatsHandler(grpctrace.WithServiceName("productcatalogservice"))
 		srv = grpc.NewServer(grpc.StatsHandler(statsHandler))
 	} else {
 		logger.Info("Stats disabled.")
