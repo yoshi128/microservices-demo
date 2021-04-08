@@ -70,7 +70,7 @@ kind: Service
 metadata:
   name: paymentservice
 spec:
-  type: ClusterIP
+  clusterIP: None
   selector:
     app: paymentservice
   ports:

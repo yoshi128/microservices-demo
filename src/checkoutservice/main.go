@@ -35,6 +35,7 @@ import (
 	"google.golang.org/grpc/stats"
 	"google.golang.org/grpc/status"
 	"google.golang.org/grpc/metadata"
+	"google.golang.org/grpc/balancer/roundrobin"
 
 	pb "github.com/signalfx/microservices-demo/src/checkoutservice/genproto"
 	money "github.com/signalfx/microservices-demo/src/checkoutservice/money"

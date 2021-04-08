@@ -51,7 +51,10 @@ class HipsterShopServer {
       ),
     };
 
-    this.server = new grpc.Server();
+    this.server = new grpc.Server({
+        'grpc.max_connection_age_ms': 5000,
+        'grpc.max_connection_age_grace_ms': 5000
+    });
     this.loadAllProtos(protoRoot);
   }
 

@@ -67,16 +67,3 @@ spec:
             cpu: 200m
             memory: 128Mi
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: paymentservice-stable
-spec:
-  type: ClusterIP
-  selector:
-    app: paymentservice
-    version: stable
-  ports:
-  - name: grpc
-    port: 50051
-    targetPort: 50051
