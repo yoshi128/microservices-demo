@@ -385,6 +385,8 @@ func chargeCardRetry(attempts int, sleep time.Duration, f func() (string, error)
 
 func (cs *checkoutService) chargeCard(ctx context.Context, amount *pb.Money, paymentInfo *pb.CreditCardInfo, behavior *SystemBehavior) (string, error) {
 
+        rand.Seed(time.Now().UTC().UnixNano())
+
 	// Connection to broken payment service
 	connBroken, err := grpc.DialContext(ctx, cs.paymentSvcAddr, grpc.WithInsecure(), grpc.WithStatsHandler(clientStatsHandler()))	
 	if err != nil {

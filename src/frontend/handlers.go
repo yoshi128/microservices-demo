@@ -63,8 +63,8 @@ type SystemBehavior struct {
 // System behavior. Propagated downstream through x-system-behavior request headers as json.
 var behavior = &SystemBehavior{
 	CheckoutService: CheckoutServiceBehavior{
-		PaymentFailureRate: 1.0,
-		MaxRetryAttempts: 20,
+		PaymentFailureRate: 0.7,
+		MaxRetryAttempts: 15,
 		RetryInitialSleepMillis: 200,
 	},
 }
