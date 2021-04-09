@@ -192,9 +192,8 @@ func (cs *checkoutService) PlaceOrder(ctx context.Context, req *pb.PlaceOrderReq
 		return nil, status.Errorf(codes.DataLoss, "failed to get metadata")
 	}
 
-	log.Info("******************************************************")
+	log.Info("hi mom!")
 	behaviorJson := md["x-system-behavior"];
-	log.Info(behaviorJson[0])
 	var behavior SystemBehavior
 	json.Unmarshal([]byte(behaviorJson[0]), &behavior)
 
