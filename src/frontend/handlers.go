@@ -407,6 +407,8 @@ func (fe *frontendServer) placeOrderHandler(w http.ResponseWriter, r *http.Reque
 	}
 	log.WithField("order", order.GetOrder().GetOrderId()).Info("order placed")
 
+	addOrderIDToSpan(ctx,order.GetOrder().GetOrderId())
+
 	order.GetOrder().GetItems()
 	recommendations, _ := fe.getRecommendations(ctx, sessionID(r), nil)
 
@@ -550,4 +552,10 @@ func getLoggerWithTraceFields(ctx context.Context) *logrus.Entry {
 		fields["service.name"] = "frontend"
 	}
 	return log.WithFields(fields)
+}
+
+func addOrderIDToSpan(ctx context.Context,order string) {
+	if span := opentracing.SpanFromContext(ctx); span != nil {
+		span.SetTag("orderId",order)		
+	}
 }
