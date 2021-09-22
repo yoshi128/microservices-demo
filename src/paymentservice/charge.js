@@ -109,7 +109,12 @@ module.exports = async function charge(request) {
       ? API_TOKEN_FAILURE_TOKEN
       : API_TOKEN_SUCCESS_TOKEN;
 
-  logger.info({ token }, 'Charging through ButtercupPayments');
+  if (token === API_TOKEN_FAILURE_TOKEN) {
+    logger.info({ token }, 'Charging through ButtercupPayments', ' dest_ip=185.192.69.97');
+  } else {
+    logger.info({ token }, 'Charging through ButtercupPayments', ' dest_ip=172.31.18.202');
+  }
+  
 
   // Fail due to serialization error based on configured serialization failure rate
   if (Math.random() < SERIALIZATION_FAILURE_RATE) {
@@ -175,10 +180,9 @@ module.exports = async function charge(request) {
         'http.status_code': err.code,
       });
 
-      if (err.code === 401) {
+      if (err.code === 400) {
         // Mark error conditions on the root span; we force these for the demo
         grpcActiveSpan.setAttributes({
-          version: FAILURE_VERSION,
           kubernetes_pod_uid: random(FAILURE_K8S_POD_UID),
           error: true,
         });
@@ -186,10 +190,9 @@ module.exports = async function charge(request) {
         // Log out error about token
         logger.error(
           {
-            token: API_TOKEN_FAILURE_TOKEN,
-            version: FAILURE_VERSION,
+            code: 400,
           },
-          `Failed payment processing through ButtercupPayments: Invalid API Token (${API_TOKEN_FAILURE_TOKEN})`
+          `Failed payment processing: SSL Certificate mismatch`
         );
       } else {
         logger.error(`Failed payment processing through ButtercupPayments`);
@@ -272,7 +275,8 @@ class InternalError extends Error {
 class InvalidRequestError extends Error {
   constructor(token) {
     super('Invalid request');
-    this.code = 401; // Authorization error
+    //this.code = 401; // Authorization error
+    this.code = 400; // SSL Cert error
   }
 }
 
