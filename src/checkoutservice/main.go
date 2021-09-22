@@ -212,18 +212,10 @@ func (cs *checkoutService) PlaceOrder(ctx context.Context, req *pb.PlaceOrderReq
 		Nanos: 0}
 	total = money.Must(money.Sum(total, *prep.shippingCostLocalized))
         
-        log.Infof("shipping Cost Localized: %+v",*prep.shippingCostLocalized)
-	log.Infof("order prep: %+v",prep)
-	log.Infof("order Items: %+v",prep.orderItems)
-	
 	for _, it := range prep.orderItems {
-                log.Infof("it cost %+v",*it.Cost)
-		//total = money.Must(money.Sum(total, *it.Cost))
 		multPrice := money.MultiplySlow(*it.Cost, uint32(it.GetItem().GetQuantity()))
 		total = money.Must(money.Sum(total, multPrice))
 	}
-
-        log.Infof("Total money or cost: %+v",total)
 
 	txID, err := cs.chargeCard(ctx, &total, req.CreditCard, &behavior)
 	if err != nil {
@@ -263,26 +255,21 @@ type orderPrep struct {
 }
 
 func (cs *checkoutService) prepareOrderItemsAndShippingQuoteFromCart(ctx context.Context, userID, userCurrency string, address *pb.Address) (orderPrep, error) {
-	log := logger.WithFields(getTraceLogFields(ctx))
 	var out orderPrep
 	cartItems, err := cs.getUserCart(ctx, userID)
 
-	log.Infof("cartItems: %+v",cartItems)
 	if err != nil {
 		return out, fmt.Errorf("cart failure: %+v", err)
 	}
 	orderItems, err := cs.prepOrderItems(ctx, cartItems, userCurrency)
-	log.Infof("orderItems: %+v",orderItems)
 	if err != nil {
 		return out, fmt.Errorf("failed to prepare order: %+v", err)
 	}
 	shippingUSD, err := cs.quoteShipping(ctx, address, cartItems)
-	log.Infof("shippingUSD: %+v",shippingUSD)
 	if err != nil {
 		return out, fmt.Errorf("shipping quote failure: %+v", err)
 	}
 	shippingPrice, err := cs.convertCurrency(ctx, shippingUSD, userCurrency)
-	log.Infof("shippingPrice: %+v",shippingPrice)
 	if err != nil {
 		return out, fmt.Errorf("failed to convert shipping cost to currency: %+v", err)
 	}
