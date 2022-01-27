@@ -2,7 +2,15 @@
     {{ template "header" . }}
 <script>
   // Fake javascript error
+  span = tracer.startSpan('CartPageError', {
+        attributes: {
+            'workflow.name': 'CartPageError',
+            'error': true
+    }
+    });
   console.error("Uncaught TypeError: Cannot read property 'Prcie' of undefined");
+
+  span.end();
 
   function getProductPrice() {
     const Payment = undefined;
@@ -27,6 +35,12 @@
       setTimeout(fn, 1);
     } else {
       document.addEventListener("DOMContentLoaded", fn);
+
+      span = tracer.startSpan('AddToCart', {
+      	attributes: {
+      		'workflow.name': 'AddToCart'
+  	    }
+      });
     }
   }
 
@@ -34,11 +48,21 @@
     const formElem = document.getElementsByTagName("form")[2];
     formElem.onsubmit = (e) => {
         e.preventDefault();
+
+        span.end();
+
+        span = tracer.startSpan('PlaceOrder', {
+        attributes: {
+            'workflow.name': 'PlaceOrder'
+    }
+    });
+
       fetch("/cart/checkout", {
         method: "POST",
         body: new FormData(formElem),
       }).then(() => {
-          setTimeout(() => formElem.submit(), 2000);
+          setTimeout(() => {formElem.submit();
+            span.end();}, 2000);
       });
     };
   });
