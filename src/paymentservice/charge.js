@@ -73,7 +73,7 @@ const SUCCESS_PAYMENT_SERVICE_DURATION_MILLIS = Number.parseInt(
   process.env['SUCCESS_PAYMENT_SERVICE_DURATION_MILLIS'] || 200
 );
 const ERROR_PAYMENT_SERVICE_DURATION_MILLIS = Number.parseInt(
-  process.env['ERROR_PAYMENT_SERVICE_DURATION_MILLIS'] || 1000
+  process.env['ERROR_PAYMENT_SERVICE_DURATION_MILLIS'] || 5000
 );
 
 /** Return random element from given array */
@@ -219,10 +219,14 @@ function buttercupPaymentsApiCharge(request, token) {
   return new Promise((resolve, reject) => {
     // Check for invalid token
     if (token === API_TOKEN_FAILURE_TOKEN) {
-      const timeoutMillis = randomInt(0, ERROR_PAYMENT_SERVICE_DURATION_MILLIS);
+      
+      // After 3 or more seconds, throw timeout error
+      const timeoutMillis = randomInt(3000, ERROR_PAYMENT_SERVICE_DURATION_MILLIS);
+      
       setTimeout(() => {
-        reject(new InvalidRequestError());
+        reject(new RequestTimeoutError());
       }, timeoutMillis);
+      
       return;
     }
 
@@ -273,6 +277,13 @@ class InvalidRequestError extends Error {
   constructor(token) {
     super('Invalid request');
     this.code = 401; // Authorization error
+  }
+}
+
+class RequestTimeoutError extends Error {
+  constructor(token) {
+    super('Request Timeout');
+    this.code = 408; // Timeout error
   }
 }
 
