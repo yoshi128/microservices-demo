@@ -224,9 +224,8 @@ function buttercupPaymentsApiCharge(request, token) {
       const timeoutMillis = randomInt(3000, ERROR_PAYMENT_SERVICE_DURATION_MILLIS);
       
       setTimeout(() => {
-        reject(new RequestTimeoutError());
+        reject(new InvalidRequestError());
       }, timeoutMillis);
-      
       return;
     }
 
