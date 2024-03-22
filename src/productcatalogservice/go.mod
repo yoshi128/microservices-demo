@@ -4,8 +4,8 @@ go 1.20
 
 require (
 	cloud.google.com/go v0.40.0
-	github.com/golang/protobuf v1.3.2
-	github.com/google/go-cmp v0.3.1
+	github.com/golang/protobuf v1.5.4
+	github.com/google/go-cmp v0.5.5
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/signalfx/signalfx-go-tracing v1.5.0
 	github.com/sirupsen/logrus v1.4.2
@@ -38,4 +38,5 @@ require (
 	google.golang.org/api v0.7.1-0.20190709010654-aae1d1b89c27 // indirect
 	google.golang.org/appengine v1.6.1 // indirect
 	google.golang.org/genproto v0.0.0-20190819201941-24fa4b261c55 // indirect
+	google.golang.org/protobuf v1.33.0 // indirect
 )
