@@ -6,7 +6,7 @@ require (
 	cloud.google.com/go v0.40.0
 	github.com/golang/protobuf v1.3.2
 	github.com/google/uuid v1.1.1
-	github.com/gorilla/mux v1.7.3
+	github.com/gorilla/mux v1.8.1
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/pkg/errors v0.8.1
 	github.com/signalfx/signalfx-go-tracing v1.5.0
