@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	cloud.google.com/go v0.40.0
-	github.com/golang/protobuf v1.3.2
+	github.com/golang/protobuf v1.5.4
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/signalfx/signalfx-go-tracing v1.5.0
 	github.com/sirupsen/logrus v1.4.2
@@ -20,7 +20,7 @@ require (
 	github.com/go-logfmt/logfmt v0.5.0 // indirect
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/golang/groupcache v0.0.0-20190702054246-869f871628b6 // indirect
-	github.com/google/go-cmp v0.3.1 // indirect
+	github.com/google/go-cmp v0.5.5 // indirect
 	github.com/google/pprof v0.0.0-20190515194954-54271f7e092f // indirect
 	github.com/googleapis/gax-go/v2 v2.0.4 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
@@ -38,6 +38,7 @@ require (
 	google.golang.org/api v0.6.0 // indirect
 	google.golang.org/appengine v1.6.1 // indirect
 	google.golang.org/genproto v0.0.0-20190819201941-24fa4b261c55 // indirect
+	google.golang.org/protobuf v1.33.0 // indirect
 )
 
 replace git.apache.org/thrift.git v0.12.1-0.20190708170704-286eee16b147 => github.com/apache/thrift v0.12.1-0.20190708170704-286eee16b147
