@@ -10,28 +10,28 @@ certifi==2020.12.5
     # via
     #   geventhttpclient
     #   requests
-chardet==4.0.0
+charset-normalizer==3.3.2
     # via requests
 click==7.1.2
     # via flask
-configargparse==1.4
+configargparse==1.7
     # via locust
 flask==2.0.1
     # via
-    #   flask-basicauth
     #   flask-cors
+    #   flask-login
     #   locust
-flask-basicauth==0.2.0
-    # via locust
 flask-cors==3.0.10
     # via locust
-gevent==21.1.2
+flask-login==0.6.3
+    # via locust
+gevent==24.2.1
     # via
     #   geventhttpclient
     #   locust
-geventhttpclient==1.5.1
+geventhttpclient==2.0.12
     # via locust
-greenlet==1.0.0
+greenlet==3.0.3
     # via gevent
 idna==2.10
     # via requests
@@ -39,17 +39,17 @@ itsdangerous==2.0.1
     # via flask
 jinja2==3.0.1
     # via flask
-locust==2.4.1
+locust==2.24.1
     # via -r requirements.in
 markupsafe==2.0.1
     # via jinja2
 msgpack==1.0.2
     # via locust
-psutil==5.8.0
+psutil==5.9.8
     # via locust
-pyzmq==22.3.0
+pyzmq==25.1.2
     # via locust
-requests==2.25.1
+requests==2.31.0
     # via locust
 roundrobin==0.0.2
     # via locust
@@ -57,7 +57,7 @@ six==1.15.0
     # via
     #   flask-cors
     #   geventhttpclient
-typing-extensions==3.10.0.2
+tomli==2.0.1
     # via locust
 urllib3==1.26.7
     # via
@@ -66,6 +66,7 @@ urllib3==1.26.7
 werkzeug==2.0.1
     # via
     #   flask
+    #   flask-login
     #   locust
 zope-event==4.5.0
     # via gevent
