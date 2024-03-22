@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	cloud.google.com/go v0.40.0
-	github.com/golang/protobuf v1.3.2
+	github.com/golang/protobuf v1.5.4
 	github.com/google/uuid v1.1.1
 	github.com/gorilla/mux v1.7.3
 	github.com/opentracing/opentracing-go v1.2.0
@@ -23,7 +23,7 @@ require (
 	github.com/go-logfmt/logfmt v0.5.0 // indirect
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/golang/groupcache v0.0.0-20190702054246-869f871628b6 // indirect
-	github.com/google/go-cmp v0.3.1 // indirect
+	github.com/google/go-cmp v0.5.5 // indirect
 	github.com/google/pprof v0.0.0-20190515194954-54271f7e092f // indirect
 	github.com/googleapis/gax-go/v2 v2.0.4 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
@@ -41,4 +41,5 @@ require (
 	google.golang.org/api v0.7.1-0.20190709010654-aae1d1b89c27 // indirect
 	google.golang.org/appengine v1.6.1 // indirect
 	google.golang.org/genproto v0.0.0-20190819201941-24fa4b261c55 // indirect
+	google.golang.org/protobuf v1.33.0 // indirect
 )
