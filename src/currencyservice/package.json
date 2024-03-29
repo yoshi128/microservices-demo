@@ -18,7 +18,7 @@
     "@opentelemetry/node": "~0.18.1",
     "@opentelemetry/propagator-b3": "~0.18.1",
     "@opentelemetry/tracing": "~0.18.1",
-    "minimatch": "^3.0.5",
+    "minimatch": "^9.0.4",
     "pino": "^5.17.0"
   },
   "devDependencies": {
