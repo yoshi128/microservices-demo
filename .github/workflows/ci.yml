@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Create kind cluster
-      uses: helm/kind-action@v1.8.0
+      uses: helm/kind-action@v1.10.0
 
     - name: Deploy From Source
       uses: hiberbee/github-action-skaffold@1.27.0
