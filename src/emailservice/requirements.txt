@@ -92,7 +92,7 @@ six==1.16.0
     # via grpcio
 typing-extensions==4.8.0
     # via opentelemetry-sdk
-urllib3==1.26.6
+urllib3==1.26.19
     # via
     #   -r requirements.in
     #   requests
