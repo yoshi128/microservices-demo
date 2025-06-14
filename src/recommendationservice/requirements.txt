@@ -52,7 +52,7 @@ protobuf==3.18.3
     # via grpcio-health-checking
 python-json-logger==0.1.11
     # via -r requirements.in
-requests==2.26.0
+requests==2.32.4
     # via
     #   opentelemetry-exporter-zipkin
     #   opentelemetry-instrumentation-requests
