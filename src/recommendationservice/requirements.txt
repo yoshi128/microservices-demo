@@ -48,7 +48,7 @@ opentelemetry-sdk==0.13b0
     #   -r requirements.in
     #   opentelemetry-exporter-zipkin
     #   opentelemetry-instrumentation-grpc
-protobuf==3.18.3
+protobuf==4.25.8
     # via grpcio-health-checking
 python-json-logger==0.1.11
     # via -r requirements.in
@@ -56,7 +56,7 @@ requests==2.26.0
     # via
     #   opentelemetry-exporter-zipkin
     #   opentelemetry-instrumentation-requests
-urllib3==1.26.6
+urllib3==2.5.0
     # via
     #   -r requirements.in
     #   requests
