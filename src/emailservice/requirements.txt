@@ -77,7 +77,7 @@ opentelemetry-semantic-conventions==0.41b0
     #   opentelemetry-sdk
 opentelemetry-util-http==0.41b0
     # via opentelemetry-instrumentation-requests
-protobuf==3.20.3
+protobuf==4.25.8
     # via
     #   grpcio-health-checking
     #   opentelemetry-exporter-zipkin-proto-http
@@ -92,7 +92,7 @@ six==1.16.0
     # via grpcio
 typing-extensions==4.8.0
     # via opentelemetry-sdk
-urllib3==1.26.6
+urllib3==2.5.0
     # via
     #   -r requirements.in
     #   requests
