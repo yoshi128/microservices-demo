@@ -8,10 +8,14 @@ on:
     # run on pull requests targeting main
     branches:
       - main
+
 jobs:
   run-tests:
     runs-on: ubuntu-latest
     steps:
+    - name: Harden-Runner Security Agent
+      uses: step-security/harden-runner@v2
+
     - uses: actions/checkout@v2
 
     - name: Create kind cluster
