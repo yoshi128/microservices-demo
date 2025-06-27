@@ -1,0 +1,14 @@
+name: Insecure Workflow Demo
+
+on:
+  push:
+
+jobs:
+  insecure-job:
+    runs-on: ubuntu-latest
+    permissions: write-all  # ❌ This is insecure on purpose!
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run something
+        run: echo "This is a vulnerable workflow"
