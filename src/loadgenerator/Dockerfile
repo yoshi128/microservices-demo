@@ -1,4 +1,4 @@
-FROM python:3.9-alpine
+FROM python:3.12.3-alpine
 
 RUN apk --no-cache add g++ zeromq-dev libffi-dev file make gcc musl-dev bash curl
 
