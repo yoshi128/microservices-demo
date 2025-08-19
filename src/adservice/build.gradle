@@ -40,7 +40,7 @@ dependencies {
 
         runtimeOnly "com.fasterxml.jackson.core:jackson-core:2.14.0-rc3",
                 "com.fasterxml.jackson.core:jackson-databind:2.14.0-rc3",
-                "io.netty:netty-tcnative-boringssl-static:2.0.43.Final"
+                "io.netty:netty-tcnative-boringssl-static:2.0.65.Final"
     }
 }
 
