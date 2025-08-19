@@ -8,7 +8,7 @@ require (
 	github.com/google/go-cmp v0.3.1
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/signalfx/signalfx-go-tracing v1.5.0
-	github.com/sirupsen/logrus v1.4.2
+	github.com/sirupsen/logrus v1.9.3
 	go.opencensus.io v0.22.2
 	golang.org/x/net v0.14.0
 	google.golang.org/grpc v1.26.0
@@ -26,7 +26,6 @@ require (
 	github.com/googleapis/gax-go/v2 v2.0.4 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/juju/errors v0.0.0-20200330140219-3fe23663418f // indirect
-	github.com/konsorten/go-windows-terminal-sequences v1.0.2 // indirect
 	github.com/mailru/easyjson v0.7.6 // indirect
 	github.com/philhofer/fwd v1.0.0 // indirect
 	github.com/signalfx/golib v2.5.1+incompatible // indirect
