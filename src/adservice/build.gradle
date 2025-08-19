@@ -14,7 +14,7 @@ description = 'Ad Service'
 group = "adservice"
 version = "0.1.0-SNAPSHOT"
 
-def grpcVersion = "1.52.1"
+def grpcVersion = "1.62.2"
 def protocVersion = "3.21.12"
 
 tasks.withType(JavaCompile) {
