@@ -8,9 +8,9 @@ require (
 	github.com/google/uuid v1.1.1
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/signalfx/signalfx-go-tracing v1.5.0
-	github.com/sirupsen/logrus v1.4.2
-	golang.org/x/net v0.14.0
-	google.golang.org/grpc v1.26.0
+	github.com/sirupsen/logrus v1.8.3
+	golang.org/x/net v0.55.0
+	google.golang.org/grpc v1.79.3
 )
 
 require (
@@ -33,7 +33,7 @@ require (
 	github.com/smartystreets/goconvey v1.6.4 // indirect
 	github.com/tinylib/msgp v1.1.2 // indirect
 	go.opencensus.io v0.22.2 // indirect
-	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45 // indirect
+	golang.org/x/oauth2 v0.27.0 // indirect
 	golang.org/x/sys v0.11.0 // indirect
 	golang.org/x/text v0.12.0 // indirect
 	google.golang.org/api v0.7.1-0.20190709010654-aae1d1b89c27 // indirect
